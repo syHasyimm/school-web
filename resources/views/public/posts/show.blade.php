@@ -13,7 +13,7 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="inline-flex items-center text-gray-600 hover:text-primary-600">
                             <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-                            Home
+                            Beranda
                         </a>
                     </li>
                     <li>
@@ -34,7 +34,7 @@
             <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 @if($post->image_path)
                     <div class="w-full h-80 md:h-[450px] relative">
-                        <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
+                        <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
                     </div>
                 @endif
                 
@@ -96,7 +96,7 @@
                         <x-card class="group flex p-4 items-center">
                             <div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
                                 @if($related->image_path)
-                                    <img src="{{ Storage::url($related->image_path) }}" alt="{{ $related->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <img src="{{ $related->image_url }}" alt="{{ $related->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                 @else
                                     <img src="https://images.unsplash.com/photo-1546410531-ea4cea9b7111?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Placeholder" class="w-full h-full object-cover grayscale opacity-80 transition-transform duration-500 group-hover:scale-110">
                                 @endif

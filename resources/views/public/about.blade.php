@@ -90,7 +90,7 @@
                         <x-section-title title="Struktur Organisasi Sekolah" />
                         <div class="text-center bg-gray-50 rounded-2xl p-6 sm:p-12 border border-gray-100">
                             @if(\App\Models\Setting::get('org_structure'))
-                                <img src="{{ Storage::url(\App\Models\Setting::get('org_structure')) }}" alt="Bagan Struktur Organisasi {{ \App\Models\Setting::get('school_name', 'Sekolah') }}" class="w-full max-w-5xl mx-auto rounded-xl shadow-md border border-gray-200">
+                                <img src="{{ asset('storage/' . \App\Models\Setting::get('org_structure')) }}" alt="Bagan Struktur Organisasi {{ \App\Models\Setting::get('school_name', 'Sekolah') }}" class="w-full max-w-5xl mx-auto rounded-xl shadow-md border border-gray-200">
                             @else
                                 <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -106,7 +106,7 @@
                         <div class="flex flex-col md:flex-row gap-12 items-center md:items-start">
                             <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
                                 @if(\App\Models\Setting::get('principal_photo'))
-                                    <img src="{{ Storage::url(\App\Models\Setting::get('principal_photo')) }}" alt="Kepala Sekolah" class="w-full h-full object-cover rounded-3xl shadow-xl shadow-gray-200 block border-4 border-white">
+                                    <img src="{{ asset('storage/' . \App\Models\Setting::get('principal_photo')) }}" alt="Kepala Sekolah" class="w-full h-full object-cover rounded-3xl shadow-xl shadow-gray-200 block border-4 border-white">
                                 @else
                                     <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kepala Sekolah" class="w-full h-full object-cover rounded-3xl shadow-xl shadow-gray-200 block border-4 border-white grayscale">
                                 @endif

@@ -97,8 +97,8 @@
                 <!-- Actions / PPDB Button -->
                 <div class="hidden md:flex items-center space-x-4">
                     @if(App\Models\Setting::isPpdbOpen())
-                        <a href="{{ route('ppdb.info') }}" class="bg-secondary-500 hover:bg-secondary-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-md shadow-secondary-500/20 transition-all hover:-translate-y-0.5 animate-pulse">
-                            Daftar PPDB
+                        <a href="{{ route('ppdb.info') }}" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-md shadow-primary-500/20 transition-all hover:-translate-y-0.5 animate-pulse">
+                            Daftar Anak Anda
                         </a>
                     @endif
                     

@@ -31,7 +31,7 @@
                         <x-card class="group flex flex-col text-center pb-6">
                             <div class="aspect-w-1 aspect-h-1 w-full bg-gray-100 overflow-hidden relative mb-6">
                                 @if($teacher->photo_path)
-                                    <img src="{{ Storage::url($teacher->photo_path) }}" alt="{{ $teacher->full_name }}" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                                    <img src="{{ asset('storage/' . $teacher->photo_path) }}" alt="{{ $teacher->full_name }}" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
                                 @else
                                     <div class="w-full h-full bg-gray-200 flex justify-center items-center">
                                         <svg class="h-1/2 w-1/2 text-gray-400" fill="currentColor" viewBox="0 0 24 24">

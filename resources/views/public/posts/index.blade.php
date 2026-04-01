@@ -50,7 +50,7 @@
                         <x-card class="flex flex-col h-full group">
                             <a href="{{ route('posts.show', $post->slug) }}" class="relative block h-56 overflow-hidden">
                                 @if($post->image_path)
-                                    <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                 @else
                                     <img src="https://images.unsplash.com/photo-1546410531-ea4cea9b7111?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 filter brightness-90">
                                 @endif

@@ -107,14 +107,14 @@
                         @foreach($galleries as $index => $gallery)
                             <div class="break-inside-avoid shadow-md rounded-2xl overflow-hidden group relative cursor-zoom-in gallery-item"
                                  wire:key="gallery-{{ $gallery->id }}"
-                                 data-src="{{ Storage::url($gallery->image_path) }}"
+                                 data-src="{{ asset('storage/' . $gallery->image_path) }}"
                                  data-title="{{ $gallery->title }}"
                                  data-desc="{{ $gallery->description ?? '' }}"
                                  @click="openLightbox({{ $index }})"
                                  x-data="{ loaded: false }">
                                 <!-- Blur-up placeholder -->
                                 <div class="absolute inset-0 bg-gray-200 animate-pulse transition-opacity duration-500" :class="loaded ? 'opacity-0' : 'opacity-100'"></div>
-                                <img src="{{ Storage::url($gallery->image_path) }}" alt="{{ $gallery->title }}" loading="lazy"
+                                <img src="{{ asset('storage/' . $gallery->image_path) }}" alt="{{ $gallery->title }}" loading="lazy"
                                      class="w-full object-cover transition-all duration-700 group-hover:scale-105"
                                      :class="loaded ? 'blur-0 opacity-100' : 'blur-sm opacity-0'"
                                      x-on:load="loaded = true">

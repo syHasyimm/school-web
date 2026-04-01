@@ -29,7 +29,7 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 @if(App\Models\Setting::isPpdbOpen())
                     <a href="{{ route('ppdb.info') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-lg text-white bg-primary-600 hover:bg-primary-700 shadow-lg hover:shadow-primary-600/30 transition-all hover:-translate-y-1">
-                        Daftar PPDB Sekarang
+                        Daftarkan Anak
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                     </a>
                 @endif
@@ -90,7 +90,7 @@
                         <div class="absolute -bottom-8 -right-4 w-72 h-72 bg-secondary-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
                         <div class="relative">
                             @if(\App\Models\Setting::get('principal_photo'))
-                                <img class="w-full h-auto rounded-3xl object-cover shadow-2xl z-10 relative" src="{{ Storage::url(\App\Models\Setting::get('principal_photo')) }}" alt="Kepala Sekolah">
+                                <img class="w-full h-auto rounded-3xl object-cover shadow-2xl z-10 relative" src="{{ asset('storage/' . \App\Models\Setting::get('principal_photo')) }}" alt="Kepala Sekolah">
                             @else
                                 <img class="w-full h-auto rounded-3xl object-cover shadow-2xl z-10 relative grayscale hover:grayscale-0 transition-all duration-700" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sambutan Kepala Sekolah">
                             @endif
@@ -138,7 +138,7 @@
                     <x-card class="flex flex-col h-full group">
                         <a href="{{ route('posts.show', $post->slug) }}" class="relative block h-56 overflow-hidden">
                             @if($post->image_path)
-                                <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             @else
                                 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 filter brightness-90">
                             @endif
@@ -181,6 +181,43 @@
                 <a href="{{ route('posts.index') }}" class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                     Semua Berita
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PPDB Call to Action Section -->
+    <div class="py-24 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-50 rounded-[2.5rem] p-10 md:p-16 text-center border border-gray-100 shadow-sm relative overflow-hidden">
+                <!-- Soft elegant accents -->
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-primary-200/30 rounded-full opacity-50 blur-3xl mix-blend-multiply"></div>
+                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-secondary-200/30 rounded-full opacity-50 blur-3xl mix-blend-multiply"></div>
+
+                <div class="relative z-10">
+                    <span class="inline-block py-1 px-3 rounded-full bg-primary-50 text-primary-600 font-semibold tracking-wider uppercase text-xs mb-6 border border-primary-100">Penerimaan Siswa Baru</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                        Mari Bergabung Bersama Kami
+                    </h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 mb-10 leading-relaxed font-light">
+                        Pendaftaran Peserta Didik Baru (PPDB) Tahun Ajaran Ini telah dibuka. Jadilah bagian dari generasi cerdas dan berkarakter di <span class="font-semibold text-gray-800">{{ \App\Models\Setting::get('school_name', 'SDN 001 Kepenuhan') }}</span>.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        @if(App\Models\Setting::isPpdbOpen())
+                            <a href="{{ route('ppdb.info') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-lg text-white bg-primary-600 hover:bg-primary-700 shadow-lg hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1">
+                                Daftarkan Anak
+                                <svg class="ml-2 w-5 h-5 -mr-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </a>
+                        @else
+                            <a href="{{ route('ppdb.info') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-lg text-primary-700 bg-primary-50 hover:bg-primary-100 transition-all duration-300 hover:-translate-y-1">
+                                Informasi PPDB
+                            </a>
+                        @endif
+                        <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-gray-200 text-base font-bold rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 hover:-translate-y-1">
+                            Hubungi Kami
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
