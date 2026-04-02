@@ -118,7 +118,7 @@
                 </div>
 
                 <!-- Thumbnail Image -->
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5" x-data="imagePreview('{{ $post->image_path ? Storage::url($post->image_path) : '' }}')">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5" x-data="imagePreview('{{ $post->image_path ? $post->image_url : '' }}')">
                     <h3 class="text-sm font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Gambar Utama (Thumbnail)</h3>
                     
                     <div class="mt-2 text-center">

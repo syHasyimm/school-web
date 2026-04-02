@@ -82,7 +82,7 @@
                     <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Siswa gembira" class="absolute top-4 right-4 w-[70%] h-[75%] object-cover rounded-[2.5rem] shadow-2xl border-8 border-white z-20 hover:rotate-1 hover:scale-105 transition-all duration-500">
                     
                     <!-- Floating Image 1 (Bottom Left) -->
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kegiatan belajar" class="absolute bottom-8 left-0 w-[55%] h-[50%] object-cover rounded-[2rem] shadow-xl border-8 border-white z-30 hover:-rotate-2 hover:scale-105 transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kegiatan belajar" class="absolute bottom-8 left-0 w-[55%] h-[50%] object-cover rounded-4xl shadow-xl border-8 border-white z-30 hover:-rotate-2 hover:scale-105 transition-all duration-500">
                     
                     <!-- Floating badge -->
                     <div class="absolute top-32 -left-8 z-40 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 animate-bounce" style="animation-duration: 4s;">

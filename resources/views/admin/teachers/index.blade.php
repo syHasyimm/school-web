@@ -69,7 +69,7 @@
                             <div class="flex items-center">
                                 <div class="shrink-0 h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden bg-gray-100 border border-gray-200">
                                     @if($teacher->photo_path)
-                                        <img src="{{ Storage::url($teacher->photo_path) }}" alt="{{ $teacher->full_name }}" class="h-full w-full object-cover">
+                                        <img src="{{ $teacher->photo_url }}" alt="{{ $teacher->full_name }}" class="h-full w-full object-cover">
                                     @else
                                         <div class="h-full w-full flex items-center justify-center font-bold text-gray-500 text-lg">
                                             {{ substr($teacher->full_name, 0, 1) }}

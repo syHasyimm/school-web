@@ -26,38 +26,40 @@
                     <p class="text-xl text-gray-500 font-medium">Belum ada data tenaga pendidik.</p>
                 </div>
             @else
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     @foreach($teachers as $teacher)
-                        <x-card class="group flex flex-col text-center pb-6">
-                            <div class="aspect-w-1 aspect-h-1 w-full bg-gray-100 overflow-hidden relative mb-6">
-                                @if($teacher->photo_path)
-                                    <img src="{{ asset('storage/' . $teacher->photo_path) }}" alt="{{ $teacher->full_name }}" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-                                @else
-                                    <div class="w-full h-full bg-gray-200 flex justify-center items-center">
-                                        <svg class="h-1/2 w-1/2 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                        </svg>
+                        <div class="group relative block h-full">
+                            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-500 text-center flex flex-col items-center h-full group-hover:-translate-y-2 relative overflow-hidden">
+                                <!-- Abstract decorative shape -->
+                                <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                
+                                <!-- Image -->
+                                <div class="relative w-32 h-32 sm:w-36 sm:h-36 mb-6">
+                                    <div class="absolute inset-0 bg-primary-100 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                    <img src="{{ $teacher->photo_url }}" alt="{{ $teacher->full_name }}" class="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10 group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="flex-1 flex flex-col items-center justify-start w-full relative z-10">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors leading-tight">{{ $teacher->full_name }}</h3>
+                                    
+                                    @if($teacher->nip)
+                                        <p class="text-[11px] text-gray-400 font-mono tracking-wider uppercase mb-3">NIP. {{ $teacher->nip }}</p>
+                                    @endif
+                                    
+                                    <div class="mt-auto w-full flex flex-col items-center pt-4">
+                                        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold bg-primary-50 text-primary-700 tracking-wide border border-primary-100/50 mb-2">
+                                            {{ $teacher->position }}
+                                        </span>
+                                        
+                                        <p class="text-sm font-medium text-gray-500 w-full line-clamp-2 min-h-[1.25rem]">{{ $teacher->subject ?? '' }}</p>
                                     </div>
-                                @endif
-                                <div class="absolute inset-0 bg-linear-to-t from-gray-900/60 to-transparent"></div>
+                                </div>
+                                
+                                <!-- Decorative bottom line -->
+                                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1.5 bg-linear-to-r from-primary-400 to-primary-600 group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
                             </div>
-                            
-                            <div class="px-6 grow flex flex-col items-center">
-                                <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">{{ $teacher->full_name }}</h3>
-                                
-                                @if($teacher->nip)
-                                    <p class="text-xs text-gray-400 font-mono mb-3 leading-none">{{ $teacher->nip }}</p>
-                                @endif
-                                
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-50 text-primary-700 tracking-wide mt-auto">
-                                    {{ $teacher->position }}
-                                </span>
-                                
-                                @if($teacher->subject)
-                                    <p class="text-sm font-medium text-gray-600 mt-3 pt-3 border-t border-gray-100 w-full">{{ $teacher->subject }}</p>
-                                @endif
-                            </div>
-                        </x-card>
+                        </div>
                     @endforeach
                 </div>
                 

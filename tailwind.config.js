@@ -31,7 +31,7 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ['Inter', 'Poppins', ...defaultTheme.fontFamily.sans],
+                sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
             },
             borderRadius: {
                 '4xl': '2rem',

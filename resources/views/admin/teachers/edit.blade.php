@@ -20,7 +20,7 @@
         <div class="space-y-6">
             
             <div class="flex flex-col sm:flex-row gap-6 items-start">
-                <div class="w-full sm:w-1/3" x-data="imagePreview('{{ $teacher->photo_path ? Storage::url($teacher->photo_path) : '' }}')">
+                <div class="w-full sm:w-1/3" x-data="imagePreview('{{ $teacher->photo_path ? $teacher->photo_url : '' }}')">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Foto Profil (Opsional)</label>
                     <div x-show="!imageUrl" class="flex flex-col items-center justify-center p-6 border-2 border-gray-300 border-dashed rounded-xl bg-gray-50 hover:bg-white transition cursor-pointer" @click="$refs.fileInput.click()" style="{{ $teacher->photo_path ? 'display: none;' : '' }}">
                         <svg class="mx-auto h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
@@ -37,7 +37,7 @@
                     
                     <input type="file" name="photo" id="photo" class="sr-only" accept="image/jpeg,image/png,image/webp" x-ref="fileInput" @change="fileChosen">
                     
-                    <button type="button" x-show="imageUrl && '{{ $teacher->photo_path }}' && imageUrl === '{{ Storage::url($teacher->photo_path) }}'" @click="$refs.fileInput.click()" class="mt-3 w-full sm:max-w-[200px] text-xs font-semibold py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition border border-gray-200">
+                    <button type="button" x-show="imageUrl && '{{ $teacher->photo_path }}' && imageUrl === '{{ $teacher->photo_url }}'" @click="$refs.fileInput.click()" class="mt-3 w-full sm:max-w-[200px] text-xs font-semibold py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition border border-gray-200">
                         Upload Foto Baru
                     </button>
                     

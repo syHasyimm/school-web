@@ -66,7 +66,7 @@
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex justify-end gap-2">
                                 @if(!$contact->is_read)
-                                <form action="{{ route('admin.contacts.markAsRead', $contact) }}" method="POST">
+                                <form action="{{ route('admin.contacts.mark-read', $contact) }}" method="POST">
                                     @csrf @method('PATCH')
                                     <button type="submit" class="text-blue-600 hover:text-blue-900 p-2 border border-transparent hover:border-blue-200 hover:bg-blue-50 rounded-lg transition text-xs" title="Tandai Dibaca">
                                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>

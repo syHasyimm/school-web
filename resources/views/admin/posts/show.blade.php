@@ -44,7 +44,7 @@
 
             @if($post->image_path)
                 <div class="mb-8 rounded-xl overflow-hidden bg-gray-100 shadow-sm border border-gray-200">
-                    <img src="{{ Storage::url($post->image_path) }}" alt="{{ $post->title }}" class="w-full h-auto max-h-[500px] object-cover">
+                    <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-auto max-h-[500px] object-cover">
                 </div>
             @endif
 

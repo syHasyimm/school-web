@@ -51,8 +51,7 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Alpine Plugins -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
@@ -78,8 +77,8 @@
                             </div>
                         @endif
                         <div class="flex flex-col">
-                            <span class="font-bold text-lg text-gray-900 leading-tight">{{ $schoolName }}</span>
-                            <span class="text-xs text-gray-500">Sekolah Dasar Negeri</span>
+                            <span class="font-bold text-lg text-sky-700 leading-tight">{{ $schoolName }}</span>
+                            <span class="text-xs text-gray-500">Sekolah Dasar</span>
                         </div>
                     </a>
                 </div>
