@@ -20,16 +20,16 @@
             
             <div class="space-y-6">
                 <!-- Replace Image Section -->
-                <div x-data="imagePreview('{{ Storage::url($gallery->image_path) }}')" class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                <div x-data="imagePreview('{{ $gallery->image_url }}')" class="bg-gray-50 p-5 rounded-xl border border-gray-200">
                     <label class="block text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">Ganti Gambar (Opsional)</label>
                     <div class="flex flex-col sm:flex-row gap-5 items-start">
                         
                         <div x-show="imageUrl" class="relative rounded-lg overflow-hidden border border-gray-300 shadow-sm shrink-0 bg-white" style="width: 200px;">
                             <img :src="imageUrl" class="w-full object-cover aspect-video" alt="Current Image">
-                            <button type="button" @click="removeImage" x-show="imageUrl !== '{{ Storage::url($gallery->image_path) }}'" class="absolute top-1.5 right-1.5 bg-red-600 text-white rounded-md p-1 hover:bg-red-700 shadow-md transition focus:outline-none">
+                            <button type="button" @click="removeImage" x-show="imageUrl !== '{{ $gallery->image_url }}'" class="absolute top-1.5 right-1.5 bg-red-600 text-white rounded-md p-1 hover:bg-red-700 shadow-md transition focus:outline-none">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
-                            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-gray-900/70 text-[10px] text-white font-mono uppercase" x-text="imageUrl === '{{ Storage::url($gallery->image_path) }}' ? 'Foto Asli' : 'Foto Baru'"></span>
+                            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-gray-900/70 text-[10px] text-white font-mono uppercase" x-text="imageUrl === '{{ $gallery->image_url }}' ? 'Foto Asli' : 'Foto Baru'"></span>
                         </div>
 
                         <div class="flex-1 w-full">

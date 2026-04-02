@@ -27,7 +27,7 @@
                     </span>
 
                     @if($i < $totalSteps)
-                        <div class="absolute top-5 left-1/2 w-full h-1 -z-0 {{ $currentStep > $i ? 'bg-primary-500' : 'bg-gray-200' }}"></div>
+                        <div class="absolute top-5 left-1/2 w-full h-1 z-0 {{ $currentStep > $i ? 'bg-primary-500' : 'bg-gray-200' }}"></div>
                     @endif
                 </div>
             @endfor
@@ -62,15 +62,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">NIK Siswa (16 Digit) <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="nik" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nik') border-red-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
+                        <input type="text" wire:model.blur="nik" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nik') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor Kartu Keluarga <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="no_kk" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('no_kk') border-red-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
+                        <input type="text" wire:model.blur="no_kk" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('no_kk') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">NISN (10 Digit) <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="nisn" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nisn') border-red-300 @enderror" placeholder="Contoh: 014xxxxxxx">
+                        <input type="text" wire:model.blur="nisn" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nisn') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 014xxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Asal Sekolah Dasar/TK/PAUD</label>
@@ -91,14 +91,14 @@
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Jenis Kelamin <span class="text-red-500">*</span></label>
-                        <select wire:model.blur="gender" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('gender') border-red-300 @enderror">
+                        <select wire:model.blur="gender" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('gender') border-red-300 @else border-gray-300 @enderror">
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Agama <span class="text-red-500">*</span></label>
-                        <select wire:model.blur="religion" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('religion') border-red-300 @enderror">
+                        <select wire:model.blur="religion" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('religion') border-red-300 @else border-gray-300 @enderror">
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Katolik">Katolik</option>
@@ -110,24 +110,24 @@
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Tempat Lahir <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="birth_place" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_place') border-red-300 @enderror" placeholder="Contoh: Pekanbaru">
+                        <input type="text" wire:model.blur="birth_place" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_place') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: Pekanbaru">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Lahir <span class="text-red-500">*</span></label>
-                        <input type="date" wire:model.blur="birth_date" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_date') border-red-300 @enderror">
+                        <input type="date" wire:model.blur="birth_date" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_date') border-red-300 @else border-gray-300 @enderror">
                     </div>
 
                     <div class="md:col-span-2">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Alamat Tempat Tinggal (Sesuai KK) <span class="text-red-500">*</span></label>
-                        <textarea wire:model.blur="address" rows="3" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('address') border-red-300 @enderror" placeholder="Contoh: Jl. Lintas Provinsi, Desa Kepenuhan..."></textarea>
+                        <textarea wire:model.blur="address" rows="3" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('address') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: Jl. Lintas Provinsi, Desa Kepenuhan..."></textarea>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">RT <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="rt" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rt') border-red-300 @enderror" placeholder="Contoh: 001">
+                        <input type="text" wire:model.blur="rt" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rt') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 001">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">RW <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="rw" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rw') border-red-300 @enderror" placeholder="Contoh: 002">
+                        <input type="text" wire:model.blur="rw" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rw') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 002">
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Ibu Kandung <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="mother_name" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('mother_name') border-red-300 @enderror" placeholder="Sesuai Akta Kelahiran">
+                        <input type="text" wire:model.blur="mother_name" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('mother_name') border-red-300 @else border-gray-300 @enderror" placeholder="Sesuai Akta Kelahiran">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Ayah (Opsional)</label>
@@ -151,7 +151,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor WhatsApp Aktif <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="parent_phone" class="w-full px-4 py-3 rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('parent_phone') border-red-300 @enderror" placeholder="Contoh: 081234567890">
+                        <input type="text" wire:model.blur="parent_phone" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('parent_phone') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 081234567890">
                     </div>
                 </div>
             </div>

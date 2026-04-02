@@ -3,47 +3,101 @@
 @section('title', \App\Models\Setting::get('school_name', 'SDN 001 Kepenuhan'))
 
 @section('content')
-    <!-- Hero Section -->
-    <div class="relative bg-gray-900 h-[600px] flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="School presentation" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-linear-to-t from-gray-900 pb-32"></div>
+    <!-- Modern Hero Section -->
+    <div class="relative bg-white pt-24 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+        <!-- Abstract Background Ornaments -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] z-0 pointer-events-none">
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 translate-x-1/3 -translate-y-1/2"></div>
+            <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-secondary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 -translate-x-1/3 translate-y-1/3"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium mb-6">
-                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                Pendidikan Dasar Berkualitas
-            </div>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
-                Selamat Datang di <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-400 to-primary-200">
-                    {{ \App\Models\Setting::get('school_name', 'SDN 001 Kepenuhan') }}
-                </span>
-            </h1>
-            <p class="mt-4 text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-                Membentuk generasi cerdas, berkarakter, dan inovatif untuk masa depan yang gemilang.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                @if(App\Models\Setting::isPpdbOpen())
-                    <a href="{{ route('ppdb.info') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-lg text-white bg-primary-600 hover:bg-primary-700 shadow-lg hover:shadow-primary-600/30 transition-all hover:-translate-y-1">
-                        Daftarkan Anak
-                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                    </a>
-                @endif
-                <a href="{{ route('about') }}" class="inline-flex items-center justify-center px-8 py-3.5 border border-white/30 text-base font-bold rounded-lg text-white hover:bg-white/10 backdrop-blur-sm transition-all">
-                    Pelajari Lebih Lanjut
-                </a>
-            </div>
-        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left z-20">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-sm font-semibold mb-6 shadow-sm">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+                        </span>
+                        Pendidikan Dasar
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.15] mb-6">
+                        Membangun Masa Depan <br class="hidden sm:block">
+                        <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-secondary-500 relative inline-block">
+                            Generasi Gemilang
+                            <svg class="absolute -bottom-2 lg:-bottom-3 w-full h-3 lg:h-4 text-secondary-200/60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="none"/></svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                        Selamat datang di <strong class="text-gray-900">{{ \App\Models\Setting::get('school_name', 'SDN 001 Kepenuhan') }}</strong>. Kami berkomitmen membentuk karakter islami, menggali potensi, dan menginspirasi siswa untuk mencapai cita-cita.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        @if(App\Models\Setting::isPpdbOpen())
+                            <a href="{{ route('ppdb.info') }}" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-600 hover:bg-primary-700 shadow-xl shadow-primary-600/30 transition-all hover:-translate-y-1 group">
+                                Daftarkan Anak
+                                <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </a>
+                        @endif
+                        <a href="{{ route('about') }}" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-gray-700 bg-white border-2 border-gray-100 hover:border-gray-200 hover:bg-gray-50 hover:shadow-sm transition-all group">
+                            Pelajari Profil
+                        </a>
+                    </div>
+                    
+                    <!-- Trust badges -->
+                    <div class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-center lg:justify-start gap-x-10 gap-y-6">
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-3">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=100&q=80" alt="">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=100&q=80" alt="">
+                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=100&q=80" alt="">
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-600">+1k</div>
+                            </div>
+                            <div class="text-sm text-left">
+                                <p class="text-gray-900 font-bold">Terpercaya</p>
+                                <p class="text-gray-500">Ribuan orang tua</p>
+                            </div>
+                        </div>
+                        <div class="w-px h-10 bg-gray-200 hidden xl:block"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-bold text-gray-900">B</span>
+                            <div class="text-sm text-left">
+                                <p class="text-gray-900 font-bold">Akreditasi</p>
+                                <p class="text-gray-500">Nilai Baik</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Wave decorative bottom -->
-        <div class="absolute bottom-0 inset-x-0">
-            <svg class="w-full h-16 md:h-24 fill-gray-50 -mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,229.3C960,213,1056,171,1152,165.3C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
+                <!-- Right Side Images -->
+                <div class="relative hidden lg:block h-[560px] z-10 w-full">
+                    <!-- Decorative back rounded rect -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-primary-50 rounded-[3rem] rotate-3 border border-primary-100/50"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-secondary-50 rounded-[3rem] -rotate-3 border border-secondary-100/50"></div>
+                    
+                    <!-- Main Image -->
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Siswa gembira" class="absolute top-4 right-4 w-[70%] h-[75%] object-cover rounded-[2.5rem] shadow-2xl border-8 border-white z-20 hover:rotate-1 hover:scale-105 transition-all duration-500">
+                    
+                    <!-- Floating Image 1 (Bottom Left) -->
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kegiatan belajar" class="absolute bottom-8 left-0 w-[55%] h-[50%] object-cover rounded-[2rem] shadow-xl border-8 border-white z-30 hover:-rotate-2 hover:scale-105 transition-all duration-500">
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute top-32 -left-8 z-40 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 animate-bounce" style="animation-duration: 4s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center rotate-3">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Kurikulum</p>
+                                <p class="text-xs font-semibold text-primary-600 uppercase tracking-widest">Merdeka</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -55,8 +109,8 @@
                     <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
                 <div>
-                    <h3 class="text-3xl font-extrabold text-gray-900 mb-1">{{ $teacherCount }}+</h3>
-                    <p class="text-gray-600 leading-relaxed font-medium">Tenaga Pendidik Profesional</p>
+                    <h3 class="text-3xl font-extrabold text-gray-900 mb-1">{{ $teacherCount > 0 ? $teacherCount . '+' : '0' }}</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium">Guru & Tenaga Pendidik</p>
                 </div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-8 border border-gray-100 flex items-start gap-5 hover:-translate-y-1 transition-transform">
@@ -64,7 +118,7 @@
                     <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                 </div>
                 <div>
-                    <h3 class="text-3xl font-extrabold text-gray-900 mb-1">{{ $studentCount }}+</h3>
+                    <h3 class="text-3xl font-extrabold text-gray-900 mb-1">{{ $studentCount > 0 ? $studentCount . '+' : '141+' }}</h3>
                     <p class="text-gray-600 leading-relaxed font-medium">Siswa Terdaftar & Aktif</p>
                 </div>
             </div>
@@ -77,6 +131,59 @@
                     <p class="text-gray-600 leading-relaxed">Pembelajaran berfokus pada siswa dan pengembangan karakter.</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Pendidik Carousel Section -->
+    <div class="py-12 bg-white overflow-hidden border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <x-section-title title="Tenaga Pendidik Profesional" subtitle="Dibimbing oleh guru-guru berkompeten dan berdedikasi tinggi." />
+                
+                @if(isset($featuredTeachers) && $featuredTeachers->count() > 4)
+                <div class="hidden md:flex space-x-3 pb-5">
+                    <!-- Buttons -->
+                    <button class="w-12 h-12 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-primary-600 hover:border-primary-300 shadow-sm hover:shadow-md transition-all group" onclick="document.getElementById('teacher-scroll').scrollBy({left: -350, behavior: 'smooth'})">
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="w-12 h-12 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:text-primary-600 hover:border-primary-300 shadow-sm hover:shadow-md transition-all group" onclick="document.getElementById('teacher-scroll').scrollBy({left: 350, behavior: 'smooth'})">
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+                @endif
+            </div>
+
+            @if(isset($featuredTeachers) && $featuredTeachers->count() > 0)
+            <div id="teacher-scroll" class="flex overflow-x-auto space-x-6 pb-8 pt-4 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                @foreach($featuredTeachers as $teacher)
+                    <div class="snap-start shrink-0 w-[280px] group relative">
+                        <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(var(--color-primary-500),0.1)] transition-all duration-300 text-center flex flex-col items-center h-full group-hover:-translate-y-2">
+                            <!-- Image -->
+                            <div class="relative w-32 h-32 mb-6">
+                                <div class="absolute inset-0 bg-primary-100 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <img src="{{ $teacher->photo_url }}" alt="{{ $teacher->full_name }}" class="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10">
+                            </div>
+                            <!-- Content -->
+                            <h4 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">{{ $teacher->full_name }}</h4>
+                            <p class="text-sm font-semibold text-primary-500 mb-3">{{ $teacher->subject ?? 'Guru' }}</p>
+                            @if($teacher->position)
+                                <span class="inline-block px-4 py-1.5 bg-gray-50 text-gray-600 text-xs font-medium rounded-full border border-gray-100">{{ $teacher->position }}</span>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            
+            <style>
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+            </style>
+            @else
+            <div class="bg-gray-50 rounded-2xl p-10 text-center border border-gray-100">
+                <p class="text-gray-500 italic">Data tenaga pendidik belum ditambahkan.</p>
+            </div>
+            @endif
         </div>
     </div>
 

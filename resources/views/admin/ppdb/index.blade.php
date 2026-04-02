@@ -114,7 +114,7 @@
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500 border border-gray-200">
+                                <div class="shrink-0 h-10 w-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-500 border border-gray-200">
                                     @php
                                         $photoDoc = $student->documents->where('type', 'foto')->first();
                                     @endphp

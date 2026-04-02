@@ -158,6 +158,26 @@
                             </div>
 
                             <div class="border-t border-gray-100 pt-5 mt-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Foto / Gambar Sejarah</label>
+                                <div class="flex items-start gap-6">
+                                    <div class="w-32 h-24 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center shrink-0 p-2 relative group overflow-hidden">
+                                        @if(App\Models\Setting::get('history_photo'))
+                                            <img src="{{ Storage::url(App\Models\Setting::get('history_photo')) }}" alt="Foto Sejarah" class="w-full h-full object-cover">
+                                            <div class="absolute inset-0 bg-black/40 xl:opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                <span class="text-white text-[10px] font-bold tracking-wider">GANTI</span>
+                                            </div>
+                                        @else
+                                            <span class="text-gray-400 font-bold block pb-1 border-b border-gray-300">GAMBAR</span>
+                                        @endif
+                                    </div>
+                                    <div class="flex-1 w-full">
+                                        <input type="file" name="history_photo" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 transition" accept="image/png,image/jpeg,image/webp">
+                                        <p class="mt-2 text-xs text-gray-500 leading-relaxed">Pilih foto/gambar ilustrasi sejarah sekolah. Resolusi direkomendasikan rasio 16:9 (contoh: 800x450px).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-5 mt-2">
                                 <label class="block text-sm font-semibold text-gray-700 mb-2">Bagan Struktur Organisasi</label>
                                 <div class="flex items-start gap-6">
                                     <div class="w-32 h-32 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center shrink-0 p-2 relative group overflow-hidden">

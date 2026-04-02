@@ -5,7 +5,7 @@
 @section('content')
     <!-- Header Banner -->
     <div class="bg-primary-900 overflow-hidden relative">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Galeri Kegiatan</h1>
@@ -88,7 +88,7 @@
                              @click="openLightbox({{ $index }})">
                             <img src="{{ asset('storage/' . $gallery->image_path) }}" alt="{{ $gallery->title }}" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-105">
                             
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <div class="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <h3 class="text-lg font-bold text-white mb-1">{{ $gallery->title }}</h3>
                                 @if($gallery->album)
                                     <span class="inline-block text-xs font-semibold text-primary-300 mb-2 uppercase tracking-wide">{{ $gallery->album }}</span>
@@ -106,7 +106,7 @@
         </div>
 
         <!-- Lightbox Modal -->
-        <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm" style="display: none;"
+        <div x-show="lightboxOpen" class="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-sm" style="display: none;"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100"
@@ -115,13 +115,13 @@
              x-transition:leave-end="opacity-0">
             
             <!-- Controls -->
-            <button @click="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors z-[101]">
+            <button @click="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors z-101">
                 <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <button @click.stop="prevImage()" class="absolute left-4 sm:left-10 text-white/70 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors z-[101] hidden sm:block">
+            <button @click.stop="prevImage()" class="absolute left-4 sm:left-10 text-white/70 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors z-101 hidden sm:block">
                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <button @click.stop="nextImage()" class="absolute right-4 sm:right-10 text-white/70 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors z-[101] hidden sm:block">
+            <button @click.stop="nextImage()" class="absolute right-4 sm:right-10 text-white/70 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors z-101 hidden sm:block">
                 <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </button>
 

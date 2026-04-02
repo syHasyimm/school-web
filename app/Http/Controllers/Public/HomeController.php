@@ -21,6 +21,8 @@ class HomeController extends Controller
         $teacherCount = Teacher::active()->count();
         $studentCount = Student::accepted()->count();
         $isPpdbOpen = Setting::isPpdbOpen();
+        
+        $featuredTeachers = Teacher::active()->ordered()->take(10)->get();
 
         $settings = Setting::getMultiple([
             'school_name',
@@ -30,7 +32,7 @@ class HomeController extends Controller
         ]);
 
         return view('public.home', compact(
-            'latestPosts', 'teacherCount', 'studentCount', 'isPpdbOpen', 'settings'
+            'latestPosts', 'teacherCount', 'studentCount', 'isPpdbOpen', 'settings', 'featuredTeachers'
         ));
     }
 }

@@ -63,7 +63,7 @@
                         </td>
                         <td class="px-6 py-3 whitespace-nowrap">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-sans font-bold text-xs uppercase">
+                                <div class="shrink-0 h-6 w-6 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-sans font-bold text-xs uppercase">
                                     {{ substr($log->user->name ?? '?', 0, 1) }}
                                 </div>
                                 <div class="ml-2 font-sans text-sm font-semibold text-gray-700">

@@ -67,7 +67,7 @@
                     <tr class="hover:bg-gray-50 transition-colors {{ !$teacher->is_active ? 'bg-gray-50 opacity-75' : '' }}">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden bg-gray-100 border border-gray-200">
+                                <div class="shrink-0 h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden bg-gray-100 border border-gray-200">
                                     @if($teacher->photo_path)
                                         <img src="{{ Storage::url($teacher->photo_path) }}" alt="{{ $teacher->full_name }}" class="h-full w-full object-cover">
                                     @else
@@ -93,7 +93,7 @@
                             <form action="{{ route('admin.teachers.toggle-active', $teacher) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit" class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 {{ $teacher->is_active ? 'bg-green-500' : 'bg-gray-300' }}" role="switch" aria-checked="{{ $teacher->is_active ? 'true' : 'false' }}">
+                                <button type="submit" class="relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 {{ $teacher->is_active ? 'bg-green-500' : 'bg-gray-300' }}" role="switch" aria-checked="{{ $teacher->is_active ? 'true' : 'false' }}">
                                     <span class="sr-only">Toggle Active</span>
                                     <span class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200 {{ $teacher->is_active ? 'translate-x-5' : 'translate-x-0' }}"></span>
                                 </button>

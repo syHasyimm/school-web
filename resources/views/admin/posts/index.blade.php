@@ -80,7 +80,7 @@
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="px-8 py-5">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 sm:h-12 sm:w-16 rounded overflow-hidden bg-gray-100 border border-gray-200">
+                                <div class="shrink-0 h-10 w-10 sm:h-12 sm:w-16 rounded overflow-hidden bg-gray-100 border border-gray-200">
                                     @if($post->image_path)
                                         <img src="{{ Storage::url($post->image_path) }}" alt="" class="h-full w-full object-cover">
                                     @else

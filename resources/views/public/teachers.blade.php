@@ -5,7 +5,7 @@
 @section('content')
     <!-- Header Banner -->
     <div class="bg-primary-900 overflow-hidden relative">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Direktori Tenaga Pendidik</h1>
@@ -39,10 +39,10 @@
                                         </svg>
                                     </div>
                                 @endif
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                                <div class="absolute inset-0 bg-linear-to-t from-gray-900/60 to-transparent"></div>
                             </div>
                             
-                            <div class="px-6 flex-grow flex flex-col items-center">
+                            <div class="px-6 grow flex flex-col items-center">
                                 <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">{{ $teacher->full_name }}</h3>
                                 
                                 @if($teacher->nip)

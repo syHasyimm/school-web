@@ -70,6 +70,7 @@ class SettingController extends Controller
             'vision' => 'required|string',
             'mission' => 'required|string',
             'history' => 'required|string',
+            'history_photo' => 'nullable|image|max:2048',
             'principal_name' => 'required|string|max:255',
             'principal_photo' => 'nullable|image|max:2048',
             'org_structure' => 'nullable|image|max:4096',
@@ -85,6 +86,13 @@ class SettingController extends Controller
             $this->imageService->delete($oldPhoto);
             $path = $this->imageService->upload($request->file('principal_photo'), 'settings', 500);
             $this->settingService->set('principal_photo', $path, 'principal');
+        }
+
+        if ($request->hasFile('history_photo')) {
+            $oldPhoto = Setting::get('history_photo');
+            $this->imageService->delete($oldPhoto);
+            $path = $this->imageService->upload($request->file('history_photo'), 'settings', 800);
+            $this->settingService->set('history_photo', $path, 'about');
         }
 
         if ($request->hasFile('org_structure')) {

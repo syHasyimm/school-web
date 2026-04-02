@@ -3,7 +3,7 @@
 
     <!-- Header Banner -->
     <div class="bg-primary-900 overflow-hidden relative">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-white via-primary-900 to-black"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Berita & Informasi</h1>
             <p class="text-xl text-primary-200 max-w-2xl mx-auto">Kumpulan berita, artikel, dan pengumuman terbaru dari sekolah.</p>
@@ -62,14 +62,14 @@
                                     @else
                                         <img src="https://images.unsplash.com/photo-1546410531-ea4cea9b7111?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 filter brightness-90">
                                     @endif
-                                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                                    <div class="absolute inset-0 bg-linear-to-t from-gray-900/60 to-transparent"></div>
                                     @if($post->categories->first())
                                         <span class="absolute top-4 left-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                                             {{ $post->categories->first()->name }}
                                         </span>
                                     @endif
                                 </a>
-                                <div class="p-6 flex flex-col flex-grow">
+                                <div class="p-6 flex flex-col grow">
                                     <div class="flex items-center text-sm text-gray-500 mb-3 space-x-4">
                                         <span class="flex items-center">
                                             <svg class="w-4 h-4 mr-1.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
