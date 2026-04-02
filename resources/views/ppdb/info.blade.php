@@ -14,7 +14,7 @@
 
             <!-- Status Banner -->
             @if($isPpdbOpen)
-                <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl shadow-xl p-8 sm:p-10 mb-12 text-center text-white relative overflow-hidden">
+                <div class="bg-linear-to-r from-green-500 to-emerald-600 rounded-2xl shadow-xl p-8 sm:p-10 mb-12 text-center text-white relative overflow-hidden">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
                     <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-24 h-24 bg-white opacity-10 rounded-full blur-xl"></div>
                     

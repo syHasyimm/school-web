@@ -51,10 +51,10 @@
         
         <!-- Header Profil -->
         <div class="bg-white shadow-sm border border-gray-200 rounded-2xl overflow-hidden relative">
-            <div class="h-24 bg-gradient-to-r from-primary-600 to-indigo-700"></div>
+            <div class="h-24 bg-linear-to-r from-primary-600 to-indigo-700"></div>
             <div class="px-6 sm:px-8 pb-8 relative -mt-12">
                 <div class="flex flex-col sm:flex-row sm:items-end gap-5">
-                    <div class="h-24 w-24 rounded-full border-4 border-white bg-white shadow-sm overflow-hidden flex-shrink-0">
+                    <div class="h-24 w-24 rounded-full border-4 border-white bg-white shadow-sm overflow-hidden shrink-0">
                         @php $photoDoc = $student->documents->where('type', 'foto')->first(); @endphp
                         @if($photoDoc)
                             <img src="{{ route('storage.file', $photoDoc->file_path) }}" alt="{{ $student->full_name }}" class="h-full w-full object-cover">

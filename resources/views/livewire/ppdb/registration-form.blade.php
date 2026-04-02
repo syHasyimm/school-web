@@ -62,15 +62,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">NIK Siswa (16 Digit) <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="nik" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nik') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
+                        <input type="text" wire:model.blur="nik" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nik') border-red-300 @else @enderror" placeholder="Contoh: 14060xxxxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor Kartu Keluarga <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="no_kk" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('no_kk') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
+                        <input type="text" wire:model.blur="no_kk" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('no_kk') border-red-300 @else @enderror" placeholder="Contoh: 14060xxxxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">NISN (10 Digit) (Opsional)</label>
-                        <input type="text" wire:model.blur="nisn" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nisn') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 014xxxxxxx">
+                        <input type="text" wire:model.blur="nisn" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nisn') border-red-300 @else @enderror" placeholder="Contoh: 014xxxxxxx">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Asal Sekolah Dasar/TK/PAUD</label>
@@ -91,14 +91,14 @@
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Jenis Kelamin <span class="text-red-500">*</span></label>
-                        <select wire:model.blur="gender" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('gender') border-red-300 @else border-gray-300 @enderror">
+                        <select wire:model.blur="gender" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('gender') border-red-300 @else @enderror">
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Agama <span class="text-red-500">*</span></label>
-                        <select wire:model.blur="religion" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('religion') border-red-300 @else border-gray-300 @enderror">
+                        <select wire:model.blur="religion" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('religion') border-red-300 @else @enderror">
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Katolik">Katolik</option>
@@ -110,24 +110,24 @@
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Tempat Lahir <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="birth_place" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_place') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: Pekanbaru">
+                        <input type="text" wire:model.blur="birth_place" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_place') border-red-300 @else @enderror" placeholder="Contoh: Pekanbaru">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Lahir <span class="text-red-500">*</span></label>
-                        <input type="date" wire:model.blur="birth_date" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_date') border-red-300 @else border-gray-300 @enderror">
+                        <input type="date" wire:model.blur="birth_date" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('birth_date') border-red-300 @else @enderror">
                     </div>
 
                     <div class="md:col-span-2">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Alamat Tempat Tinggal (Sesuai KK) <span class="text-red-500">*</span></label>
-                        <textarea wire:model.blur="address" rows="3" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('address') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: Jl. Lintas Provinsi, Desa Kepenuhan..."></textarea>
+                        <textarea wire:model.blur="address" rows="3" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('address') border-red-300 @else @enderror" placeholder="Contoh: Jl. Lintas Provinsi, Desa Kepenuhan..."></textarea>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">RT <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="rt" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rt') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 001">
+                        <input type="text" wire:model.blur="rt" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rt') border-red-300 @else @enderror" placeholder="Contoh: 001">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">RW <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="rw" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rw') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 002">
+                        <input type="text" wire:model.blur="rw" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('rw') border-red-300 @else @enderror" placeholder="Contoh: 002">
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Ibu Kandung <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="mother_name" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('mother_name') border-red-300 @else border-gray-300 @enderror" placeholder="Sesuai Akta Kelahiran">
+                        <input type="text" wire:model.blur="mother_name" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('mother_name') border-red-300 @else @enderror" placeholder="Sesuai Akta Kelahiran">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nama Ayah (Opsional)</label>
@@ -151,7 +151,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor WhatsApp Aktif <span class="text-red-500">*</span></label>
-                        <input type="text" wire:model.blur="parent_phone" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('parent_phone') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 081234567890">
+                        <input type="text" wire:model.blur="parent_phone" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('parent_phone') border-red-300 @else @enderror" placeholder="Contoh: 081234567890">
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                             <p class="text-sm text-gray-500 mb-4">Latar belakang merah/biru, wajah terlihat jelas. (JPG/PNG maks 2MB).</p>
                             
                             <input type="file" wire:model="photo_file" id="photo_file" class="hidden" accept="image/jpeg,image/png">
-                            <label for="photo_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors @error('photo_file') border-red-400 @else border-gray-300 @enderror">
+                            <label for="photo_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors @error('photo_file') border-red-400 @else @enderror">
                                 @if ($photo_file)
                                     <div class="w-32 h-32 mb-2 rounded shadow-sm overflow-hidden bg-gray-100">
                                         <img src="{{ $photo_file->temporaryUrl() }}" class="w-full h-full object-cover">
@@ -190,7 +190,7 @@
                             <p class="text-sm text-gray-500 mb-4">Tulisan harus terbaca dengan jelas. (JPG/PNG/PDF maks 2MB).</p>
                             
                             <input type="file" wire:model="kk_file" id="kk_file" class="hidden" accept=".jpg,.jpeg,.png,.pdf">
-                            <label for="kk_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('kk_file') border-red-400 @else border-gray-300 @enderror">
+                            <label for="kk_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('kk_file') border-red-400 @else @enderror">
                                 @if ($kk_file)
                                     <div class="p-3 bg-emerald-50 rounded-full text-emerald-600 mb-2"><svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
                                     <span class="text-sm font-bold text-emerald-600 truncate max-w-full px-2">{{ $kk_file->getClientOriginalName() }}</span>
@@ -208,7 +208,7 @@
                             <p class="text-sm text-gray-500 mb-4">Tulisan harus terbaca dengan jelas. (JPG/PNG/PDF maks 2MB).</p>
                             
                             <input type="file" wire:model="akta_file" id="akta_file" class="hidden" accept=".jpg,.jpeg,.png,.pdf">
-                            <label for="akta_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('akta_file') border-red-400 @else border-gray-300 @enderror">
+                            <label for="akta_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('akta_file') border-red-400 @else @enderror">
                                 @if ($akta_file)
                                     <div class="p-3 bg-emerald-50 rounded-full text-emerald-600 mb-2"><svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
                                     <span class="text-sm font-bold text-emerald-600 truncate max-w-full px-2">{{ $akta_file->getClientOriginalName() }}</span>
@@ -226,7 +226,7 @@
                             <p class="text-sm text-gray-500 mb-4">Uraikan riwayat pendidikan jika ada. (JPG/PNG/PDF maks 2MB).</p>
                             
                             <input type="file" wire:model="ijazah_file" id="ijazah_file" class="hidden" accept=".jpg,.jpeg,.png,.pdf">
-                            <label for="ijazah_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('ijazah_file') border-red-400 @else border-gray-300 @enderror">
+                            <label for="ijazah_file" class="cursor-pointer flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl bg-white hover:bg-primary-50 hover:border-primary-400 transition-colors h-44 @error('ijazah_file') border-red-400 @else @enderror">
                                 @if ($ijazah_file)
                                     <div class="p-3 bg-emerald-50 rounded-full text-emerald-600 mb-2"><svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
                                     <span class="text-sm font-bold text-emerald-600 truncate max-w-full px-2">{{ $ijazah_file->getClientOriginalName() }}</span>
