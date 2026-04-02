@@ -67,12 +67,17 @@ class RegistrationService
                 "Status pendaftaran {$student->full_name} diubah menjadi {$status->label()}",
                 $student
             );
+        });
 
-            // Send notification to the student's user
+        // Send notification outside the transaction so mail failures don't rollback status updates
+        try {
             if ($student->user) {
                 $student->user->notify(new PpdbStatusChanged($student, $status));
             }
-        });
+        } catch (\Exception $e) {
+            // Log the error but don't prevent the status update
+            \Illuminate\Support\Facades\Log::warning('Gagal mengirim notifikasi PPDB: ' . $e->getMessage());
+        }
     }
 
     public function storeDocument(Student $student, $file, string $type): StudentDocument

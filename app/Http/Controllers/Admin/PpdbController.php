@@ -48,9 +48,7 @@ class PpdbController extends Controller
     {
         $validated = $request->validate([
             'status' => 'required|in:accepted,rejected',
-            'rejection_reason' => 'required_if:status,rejected|nullable|string|max:500',
-        ], [
-            'rejection_reason.required_if' => 'Alasan penolakan wajib diisi.',
+            'rejection_reason' => 'nullable|string|max:500',
         ]);
 
         $status = StudentStatus::from($validated['status']);
@@ -70,7 +68,7 @@ class PpdbController extends Controller
             'action' => 'required|in:accepted,rejected',
             'student_ids' => 'required|array',
             'student_ids.*' => 'exists:students,id',
-            'rejection_reason' => 'required_if:action,rejected|nullable|string',
+            'rejection_reason' => 'nullable|string',
         ]);
 
         $status = StudentStatus::from($validated['action']);

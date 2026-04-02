@@ -5,11 +5,10 @@ namespace App\Notifications;
 use App\Enums\StudentStatus;
 use App\Models\Student;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PpdbStatusChanged extends Notification implements ShouldQueue
+class PpdbStatusChanged extends Notification
 {
     use Queueable;
 

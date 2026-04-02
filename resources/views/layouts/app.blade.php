@@ -16,7 +16,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('title', $schoolName)">
     <meta property="og:description" content="@yield('meta_description', 'Portal informasi resmi ' . $schoolName)">
-    <meta property="og:image" content="@yield('og_image', ($globalSettings['logo_path'] ?? null) ? Storage::url($globalSettings['logo_path']) : asset('images/default-og.png'))">
+    <meta property="og:image" content="@yield('og_image', ($globalSettings['logo_path'] ?? null) ? asset('storage/' . $globalSettings['logo_path']) : asset('images/default-og.png'))">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
         "name": "{{ $schoolName }}",
         "url": "{{ config('app.url') }}",
         @if($globalSettings['logo_path'] ?? null)
-        "logo": "{{ Storage::url($globalSettings['logo_path']) }}",
+        "logo": "{{ asset('storage/' . $globalSettings['logo_path']) }}",
         @endif
         "address": {
             "@@type": "PostalAddress",
@@ -71,7 +71,7 @@
                 <div class="shrink-0 flex items-center gap-3">
                     <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                         @if($globalSettings['logo_path'] ?? null)
-                            <img class="h-10 w-auto transition-transform group-hover:scale-105" src="{{ Storage::url($globalSettings['logo_path']) }}" alt="Logo">
+                            <img class="h-10 w-auto transition-transform group-hover:scale-105" src="{{ asset('storage/' . $globalSettings['logo_path']) }}" alt="Logo">
                         @else
                             <div class="h-10 w-10 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105">
                                 SD
@@ -173,7 +173,7 @@
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
                         @if($globalSettings['logo_path'] ?? null)
-                            <img class="h-12 w-auto brightness-0 invert" src="{{ Storage::url($globalSettings['logo_path']) }}" alt="Logo">
+                            <img class="h-12 w-auto brightness-0 invert" src="{{ asset('storage/' . $globalSettings['logo_path']) }}" alt="Logo">
                         @else
                             <div class="h-10 w-10 bg-primary-600 rounded flex items-center justify-center text-white font-bold text-xl">SD</div>
                         @endif

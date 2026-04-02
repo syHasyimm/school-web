@@ -119,7 +119,7 @@
                                         $photoDoc = $student->documents->where('type', 'foto')->first();
                                     @endphp
                                     @if($photoDoc)
-                                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Storage::url($photoDoc->file_path) }}" alt="">
+                                        <img class="h-10 w-10 rounded-full object-cover" src="{{ route('storage.file', $photoDoc->file_path) }}" alt="">
                                     @else
                                         {{ substr($student->full_name, 0, 1) }}
                                     @endif

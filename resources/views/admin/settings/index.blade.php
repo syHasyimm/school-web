@@ -78,7 +78,7 @@
                             <div class="flex items-start gap-6">
                                 <div class="w-32 h-32 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center shrink-0 p-2 relative group overflow-hidden">
                                     @if(App\Models\Setting::get('logo_path'))
-                                        <img src="{{ Storage::url(App\Models\Setting::get('logo_path')) }}" alt="Logo saat ini" class="w-full h-full object-contain">
+                                        <img src="{{ asset('storage/' . App\Models\Setting::get('logo_path')) }}" alt="Logo saat ini" class="w-full h-full object-contain">
                                         <div class="absolute inset-0 bg-black/40 xl:opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                             <span class="text-white text-[10px] font-bold tracking-wider">GANTI</span>
                                         </div>
@@ -118,7 +118,7 @@
                             <div class="flex flex-col sm:flex-row gap-6">
                                 <div class="w-32 h-40 bg-white rounded-lg border border-indigo-200 flex items-center justify-center shrink-0 p-1 relative overflow-hidden shadow-sm">
                                     @if(App\Models\Setting::get('principal_photo'))
-                                        <img src="{{ Storage::url(App\Models\Setting::get('principal_photo')) }}" alt="Foto Kepsek" class="w-full h-full object-cover rounded-md">
+                                        <img src="{{ asset('storage/' . App\Models\Setting::get('principal_photo')) }}" alt="Foto Kepsek" class="w-full h-full object-cover rounded-md">
                                     @else
                                         <span class="text-indigo-300 font-bold block">FOTO</span>
                                     @endif
@@ -162,7 +162,7 @@
                                 <div class="flex items-start gap-6">
                                     <div class="w-32 h-24 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center shrink-0 p-2 relative group overflow-hidden">
                                         @if(App\Models\Setting::get('history_photo'))
-                                            <img src="{{ Storage::url(App\Models\Setting::get('history_photo')) }}" alt="Foto Sejarah" class="w-full h-full object-cover">
+                                            <img src="{{ asset('storage/' . App\Models\Setting::get('history_photo')) }}" alt="Foto Sejarah" class="w-full h-full object-cover">
                                             <div class="absolute inset-0 bg-black/40 xl:opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                 <span class="text-white text-[10px] font-bold tracking-wider">GANTI</span>
                                             </div>
@@ -182,7 +182,7 @@
                                 <div class="flex items-start gap-6">
                                     <div class="w-32 h-32 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center shrink-0 p-2 relative group overflow-hidden">
                                         @if(App\Models\Setting::get('org_structure'))
-                                            <img src="{{ Storage::url(App\Models\Setting::get('org_structure')) }}" alt="Struktur" class="w-full h-full object-contain">
+                                            <img src="{{ asset('storage/' . App\Models\Setting::get('org_structure')) }}" alt="Struktur" class="w-full h-full object-contain">
                                             <div class="absolute inset-0 bg-black/40 xl:opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                 <span class="text-white text-[10px] font-bold tracking-wider">GANTI</span>
                                             </div>

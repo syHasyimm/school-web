@@ -69,7 +69,7 @@
                         <input type="text" wire:model.blur="no_kk" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('no_kk') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 14060xxxxxxxxx">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">NISN (10 Digit) <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">NISN (10 Digit) (Opsional)</label>
                         <input type="text" wire:model.blur="nisn" class="w-full px-4 py-3 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500 @error('nisn') border-red-300 @else border-gray-300 @enderror" placeholder="Contoh: 014xxxxxxx">
                     </div>
                     <div>
@@ -251,7 +251,7 @@
                     
                     <div class="flex items-start">
                         <div class="flex items-center h-5">
-                            <input id="is_agreed" wire:model="is_agreed" type="checkbox" class="w-5 h-5 text-primary-600 bg-white border-primary-300 rounded focus:ring-primary-600 focus:ring-2">
+                            <input id="is_agreed" wire:model.live="is_agreed" type="checkbox" class="w-5 h-5 text-primary-600 bg-white border-primary-300 rounded focus:ring-primary-600 focus:ring-2">
                         </div>
                         <label for="is_agreed" class="ml-3 text-sm font-medium text-gray-700 leading-relaxed cursor-pointer select-none">
                             Saya yang bertanda tangan sebagai orang tua/wali dari calon peserta didik, dengan ini menyatakan bahwa seluruh data dan dokumen yang saya unggah adalah <strong>BENAR</strong> dan dapat dipertanggungjawabkan secara hukum. Apabila di kemudian hari terbukti ada pemalsuan data, maka saya bersedia menerima sanksi pembatalan kelulusan putra/putri saya.

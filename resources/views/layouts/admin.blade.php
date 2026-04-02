@@ -25,10 +25,14 @@
     <!-- Sidebar -->
     <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-white border-r border-gray-200 lg:translate-x-0 lg:fixed lg:inset-y-0 shadow-sm flex flex-col">
         <div class="flex items-center justify-center p-6 border-b border-gray-100">
-            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                    S
-                </div>
+            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 group">
+                @if(\App\Models\Setting::get('logo_path'))
+                    <img src="{{ asset('storage/' . \App\Models\Setting::get('logo_path')) }}" alt="Logo" class="w-10 h-10 object-contain transition-transform group-hover:scale-105">
+                @else
+                    <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        S
+                    </div>
+                @endif
                 <span class="text-xl font-bold text-gray-800 tracking-tight">AdminPanel</span>
             </a>
         </div>

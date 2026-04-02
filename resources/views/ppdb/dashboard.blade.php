@@ -52,6 +52,9 @@
                 </div>
             @else
                 <!-- Scenario 2: Sudah Mendaftar -->
+                @php
+                    $statusVal = is_object($student->status) ? ($student->status->value ?? $student->status) : $student->status;
+                @endphp
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     
                     <!-- Left Column: Status Card & Timeline -->
@@ -61,7 +64,7 @@
                         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                             <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Status Pendaftaran</h3>
                             
-                            @if($student->status === 'pending')
+                            @if($statusVal === 'pending')
                                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">
                                     <div class="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-amber-100 mb-3">
                                         <svg class="w-6 h-6 text-amber-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -69,7 +72,7 @@
                                     <p class="text-amber-800 font-bold text-lg mb-1">Dalam Verifikasi</p>
                                     <p class="text-amber-600 text-sm">Berkas Anda sedang diperiksa oleh panitia.</p>
                                 </div>
-                            @elseif($student->status === 'accepted')
+                            @elseif($statusVal === 'accepted')
                                 <div class="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
                                     <div class="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-green-100 mb-3">
                                         <svg class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -77,7 +80,7 @@
                                     <p class="text-green-800 font-bold text-lg mb-1">Diterima</p>
                                     <p class="text-green-600 text-sm">Selamat! Anda telah resmi diterima.</p>
                                 </div>
-                            @elseif($student->status === 'rejected')
+                            @elseif($statusVal === 'rejected')
                                 <div class="bg-red-50 border border-red-200 rounded-xl p-5 text-center">
                                     <div class="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-red-100 mb-3">
                                         <svg class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -87,7 +90,7 @@
                                 </div>
                             @endif
 
-                            @if($student->status === 'rejected' && $student->rejection_reason)
+                            @if($statusVal === 'rejected' && $student->rejection_reason)
                                 <div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 relative">
                                     <span class="absolute -top-3 left-4 bg-white px-2 text-xs font-bold text-gray-500">Alasan Penolakan:</span>
                                     <p class="text-sm text-gray-700 italic mt-1">&quot;{{ $student->rejection_reason }}&quot;</p>
@@ -114,15 +117,15 @@
 
                                 <!-- Step 2: Proses Verifikasi -->
                                 <div class="relative mb-8">
-                                    <span class="absolute -left-9 w-6 h-6 rounded-full {{ $student->status === 'pending' ? 'bg-amber-100 border-2 border-amber-500' : 'bg-primary-100 border-2 border-primary-500' }} flex items-center justify-center shadow-sm">
-                                        @if($student->status === 'pending')
+                                    <span class="absolute -left-9 w-6 h-6 rounded-full {{ $statusVal === 'pending' ? 'bg-amber-100 border-2 border-amber-500' : 'bg-primary-100 border-2 border-primary-500' }} flex items-center justify-center shadow-sm">
+                                        @if($statusVal === 'pending')
                                             <svg class="w-3 h-3 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10"/></svg>
                                         @else
                                             <svg class="w-3.5 h-3.5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                         @endif
                                     </span>
-                                    <h4 class="text-sm font-bold {{ $student->status === 'pending' ? 'text-amber-700' : 'text-gray-900' }}">Verifikasi Berkas</h4>
-                                    @if($student->status === 'pending')
+                                    <h4 class="text-sm font-bold {{ $statusVal === 'pending' ? 'text-amber-700' : 'text-gray-900' }}">Verifikasi Berkas</h4>
+                                    @if($statusVal === 'pending')
                                         <p class="text-xs text-gray-500">Sedang diperiksa panitia</p>
                                     @else
                                         <p class="text-xs text-gray-500">{{ $student->verified_at ? $student->verified_at->translatedFormat('d F Y, H:i') : 'Selesai' }}</p>
@@ -131,20 +134,20 @@
 
                                 <!-- Step 3: Hasil -->
                                 <div class="relative">
-                                    <span class="absolute -left-9 w-6 h-6 rounded-full {{ $student->status === 'pending' ? 'bg-gray-100 border-2 border-gray-300' : ($student->status === 'accepted' ? 'bg-green-100 border-2 border-green-500' : 'bg-red-100 border-2 border-red-500') }} flex items-center justify-center shadow-sm">
-                                        @if($student->status === 'accepted')
+                                    <span class="absolute -left-9 w-6 h-6 rounded-full {{ $statusVal === 'pending' ? 'bg-gray-100 border-2 border-gray-300' : ($statusVal === 'accepted' ? 'bg-green-100 border-2 border-green-500' : 'bg-red-100 border-2 border-red-500') }} flex items-center justify-center shadow-sm">
+                                        @if($statusVal === 'accepted')
                                             <svg class="w-3.5 h-3.5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                        @elseif($student->status === 'rejected')
+                                        @elseif($statusVal === 'rejected')
                                             <svg class="w-3.5 h-3.5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                         @else
                                             <div class="w-2 h-2 rounded-full bg-gray-300"></div>
                                         @endif
                                     </span>
-                                    <h4 class="text-sm font-bold {{ $student->status === 'pending' ? 'text-gray-400' : ($student->status === 'accepted' ? 'text-green-700' : 'text-red-700') }}">
+                                    <h4 class="text-sm font-bold {{ $statusVal === 'pending' ? 'text-gray-400' : ($statusVal === 'accepted' ? 'text-green-700' : 'text-red-700') }}">
                                         Pengumuman Hasil
                                     </h4>
-                                    @if($student->status !== 'pending')
-                                        <p class="text-xs text-gray-500">{{ $student->status === 'accepted' ? 'Lulus Verifikasi' : 'Pendaftaran Ditolak' }}</p>
+                                    @if($statusVal !== 'pending')
+                                        <p class="text-xs text-gray-500">{{ $statusVal === 'accepted' ? 'Lulus Verifikasi' : 'Pendaftaran Ditolak' }}</p>
                                     @endif
                                 </div>
                             </div>

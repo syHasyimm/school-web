@@ -68,7 +68,7 @@ class RegistrationForm extends Component
             // Step 1
             'nik' => 'required|digits:16|unique:students,nik',
             'no_kk' => 'required|digits:16',
-            'nisn' => 'required|digits:10|unique:students,nisn',
+            'nisn' => 'nullable|digits:10|unique:students,nisn',
             'full_name' => 'required|string|max:255',
             'nickname' => 'nullable|string|max:50',
             'gender' => 'required|in:L,P',
@@ -139,11 +139,16 @@ class RegistrationForm extends Component
 
     private function validateStep()
     {
+        // Pastikan nisn menjadi null jika kosong agar rule digits:10 tidak error
+        if ($this->nisn === '') {
+            $this->nisn = null;
+        }
+
         if ($this->currentStep == 1) {
             $this->validate([
                 'nik' => 'required|digits:16|unique:students,nik',
                 'no_kk' => 'required|digits:16',
-                'nisn' => 'required|digits:10|unique:students,nisn',
+                'nisn' => 'nullable|digits:10|unique:students,nisn',
                 'full_name' => 'required|string|max:255',
                 'nickname' => 'nullable|string|max:50',
                 'gender' => 'required|in:L,P',
@@ -174,6 +179,11 @@ class RegistrationForm extends Component
 
     public function submit()
     {
+        // Pastikan nisn menjadi null jika kosong sebelum final validation
+        if ($this->nisn === '') {
+            $this->nisn = null;
+        }
+
         // Final validation
         $this->validate();
 

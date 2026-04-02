@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\Ppdb;
 use App\Http\Controllers\Public as PublicControllers;
 use Illuminate\Support\Facades\Route;
+
+// File serving route (fallback for Windows/Laragon symlink issues)
+Route::get('/berkas/{path}', [FileController::class, 'show'])->where('path', '.*')->name('storage.file');
 
 // ══════════════════════════════════════════════
 // PUBLIC ROUTES (Guest accessible)
